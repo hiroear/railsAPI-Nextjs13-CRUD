@@ -3,7 +3,6 @@
 import { ChangeEvent, useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
-import { Post } from '../types'
 
 // 親コンポーネントから渡ってくる propsの型を定義
 type Props = {

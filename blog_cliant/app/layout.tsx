@@ -1,5 +1,7 @@
 import './globals.css' //tailwindcss読み込み
 import BlogList from './components/blog-list'
+import Spinner from './components/spinner'
+import { Suspense } from 'react'
 
 export const metadata = {
   title: 'blog_cliant',
@@ -16,7 +18,10 @@ export default function RootLayout({
       <body>
         <section className="flex">
           <aside className={`h-[calc(100vh-56px)] w-1/4 bg-gray-300 p-2`}>
-            <BlogList />
+            {/* <Suspense/>でラップすることで、<BlogList/>の処理完了を待たずに、他のコンポーネントを表示させておくことができる。 */}
+            <Suspense fallback={<Spinner color="border-green-500"/>}>
+              <BlogList />
+            </Suspense>
           </aside>
           <main className="flex flex-1 justify-center bg-gray-400">
             {/* /page.tsx、blog個別ページ、Create New Postページ がレンダリングされる */}
